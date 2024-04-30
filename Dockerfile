@@ -15,6 +15,7 @@ ENV TZ="UTC" \
     MODEL_PATH="/repository" \
     MODEL_REPO="TheBloke/X-MythoChronos-13B-GGUF" \
     MODEL="x-mythochronos-13b.Q4_0.gguf" \
+    MODEL_ALIAS="chat" \
     N_CTX=1024 \
     N_BATCH=512 \
     N_GPU_LAYERS=0 \
