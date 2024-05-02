@@ -35,6 +35,7 @@ exec python3 -B -m host \
     --main_gpu 0 \
     --chat_format alpaca \
     --offload_kqv False \
+    --cache True \
     --cache_type ram \
     --cache_size 2147483648 \
     --host 0.0.0.0 \
