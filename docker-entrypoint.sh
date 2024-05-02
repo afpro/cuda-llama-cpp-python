@@ -27,7 +27,7 @@ service nginx start
 
 # start server
 exec python3 -B -m host \
-    --model /repository/${MODEL:-"model.gguf"}a \
+    --model /repository/x-mythochronos-13b.Q4_0.gguf \
     --model_alias chat \
     --n_ctx 32768 \
     --n_batch 512 \
