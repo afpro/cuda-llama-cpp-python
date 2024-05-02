@@ -4,11 +4,11 @@ EXPOSE 80/tcp
 EXPOSE 8000/tcp
 
 # Setup dependencies
-RUN apt update && \
+RUN apt update &&
     apt install -y python3 python3-venv python3-pip python3-uvicorn
 
-RUN python3 -m venv venv && \
-    /venv/bin/pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu121 && \
+RUN python3 -m venv venv &&
+    /venv/bin/pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu121 &&
     /venv/bin/pip install anyio fastapi starlette sse_starlette starlette_context pydantic pydantic_settings huggingface_hub[cli]
 
 # Setup nginx reverse proxy
@@ -21,7 +21,7 @@ ENV TZ="UTC" \
     MODEL_REPO="TheBloke/X-MythoChronos-13B-GGUF" \
     MODEL="x-mythochronos-13b.Q4_0.gguf" \
     MODEL_ALIAS="chat" \
-    N_CTX=1024 \
+    N_CTX=32768 \
     N_BATCH=512 \
     N_GPU_LAYERS=0 \
     MAIN_GPU=0 \
