@@ -40,7 +40,6 @@ if [ "$#" = "0" ]; then
     param=""
     param="${param} --model '${MODEL_PATH:-"/model"}/${MODEL:-"llama-2-7b-chat.Q4_K_M.gguf"}'"
     param="${param} --model_alias ${MODEL_ALIAS:-'chat'}"
-    param="${param} --seed ${SEED:-4294967295}"
     param="${param} --n_ctx ${N_CTX:-2048}"
     param="${param} --n_batch ${N_BATCH:-512}"
     param="${param} --n_gpu_layers ${N_GPU_LAYERS:-0}"
