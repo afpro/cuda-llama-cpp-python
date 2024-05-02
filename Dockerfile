@@ -10,6 +10,11 @@ RUN python3 -m venv venv && \
     /venv/bin/pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cu121 && \
     /venv/bin/pip install anyio fastapi starlette sse_starlette starlette_context pydantic pydantic_settings huggingface_hub[cli]
 
+# Setup nginx reverse proxy
+RUN apt install -y nginx
+COPY default /etc/nginx/sites-available
+RUN service nginx start
+
 # Setup environment
 ENV TZ="UTC" \
     MODEL_PATH="/repository" \
@@ -38,11 +43,12 @@ ENV TZ="UTC" \
     CACHE_TYPE="ram" \
     CACHE_SIZE=2147483648 \
     VERBOSE=True \
-    HOST="0.0.0.0" \
+    HOST="127.0.0.1" \
     PORT=8000 \
     INTERRUPT_REQUESTS=True
 
 # Setup entrypoint
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
