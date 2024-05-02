@@ -188,7 +188,7 @@ async def authenticate(
     authorization: Optional[str] = Depends(bearer_scheme),
 ):
     # Skip API key check if it's not set in settings
-    if settings.api_key is None:
+    if settings.api_key is None or len(settings.api_key.strip()) == 0:
         return True
 
     # check bearer credentials against the api_key
