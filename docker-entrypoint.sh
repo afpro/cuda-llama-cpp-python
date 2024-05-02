@@ -30,6 +30,9 @@ if [ "$MODEL_REPO" != "local" ] && { [ "$MODEL_DOWNLOAD" = "True" ] || [ "$MODEL
     fi    
 fi
 
+# start nginx reverse proxy
+service nginx start
+
 # if started without args, run app.py
 if [ "$#" = "0" ]; then
 

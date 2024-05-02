@@ -14,7 +14,6 @@ RUN python3 -m venv venv && \
 # Setup nginx reverse proxy
 RUN apt install -y nginx
 COPY default /etc/nginx/sites-available/
-CMD ["service", "nginx", "start"]
 
 # Setup environment
 ENV TZ="UTC" \
