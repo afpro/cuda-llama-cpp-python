@@ -26,7 +26,7 @@ ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ >/etc/timezone
 service nginx start
 
 # start server
-exec python3 -B -m host host \
+exec python3 -B -m host \
     --model /repository/${MODEL:-"model.gguf"}a \
     --model_alias chat \
     --n_ctx 32768 \
