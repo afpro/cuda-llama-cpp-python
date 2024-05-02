@@ -1,5 +1,6 @@
 FROM nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 WORKDIR /
+EXPOSE 80/tcp
 EXPOSE 8000/tcp
 
 # Setup dependencies
@@ -43,7 +44,7 @@ ENV TZ="UTC" \
     CACHE_TYPE="ram" \
     CACHE_SIZE=2147483648 \
     VERBOSE=True \
-    HOST="127.0.0.1" \
+    HOST="0.0.0.0" \
     PORT=8000 \
     INTERRUPT_REQUESTS=True
 
