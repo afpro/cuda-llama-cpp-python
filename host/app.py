@@ -130,6 +130,14 @@ def create_app(
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    @app.middleware('dump')
+    async def dump_middleware(request: Request, call_next):
+        print(f'DUMP: {request.url}')
+        for k, v in request.headers.items():
+            print(f'  header "{k}" = "{v}"')
+        return await call_next(request)
+
     app.include_router(router)
 
     assert model_settings is not None
