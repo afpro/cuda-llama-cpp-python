@@ -29,7 +29,7 @@ service nginx start
 exec python3 -B -m host \
     --model /repository/x-mythochronos-13b.Q4_0.gguf \
     --model_alias chat \
-    --n_ctx 32768 \
+    --n_ctx 16384 \
     --n_batch 512 \
     --n_gpu_layers -1 \
     --main_gpu 0 \
