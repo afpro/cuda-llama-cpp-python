@@ -47,8 +47,10 @@ ENV TZ="UTC" \
     PORT=8000 \
     INTERRUPT_REQUESTS=False
 
+# Modified host code
+ADD host /host
+
 # Setup entrypoint
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-
 ENTRYPOINT ["/docker-entrypoint.sh"]
