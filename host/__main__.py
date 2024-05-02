@@ -28,6 +28,7 @@ import os
 import sys
 
 import uvicorn
+from llama_cpp.llama_cpp import llama_supports_gpu_offload
 
 from .app import create_app
 from .cli import add_args_from_model, parse_model_from_args
@@ -79,12 +80,16 @@ def main():
         sys.exit(1)
     assert server_settings is not None
     assert model_settings is not None
+
+    print(f'Support GPU: {llama_supports_gpu_offload()}')
+
     app = create_app(
         server_settings=server_settings,
         model_settings=model_settings,
     )
     for route in app.router.routes:
         print(route)
+
     uvicorn.run(
         app,
         host=os.getenv("HOST", server_settings.host),
