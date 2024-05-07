@@ -4,7 +4,7 @@
 
 based on [3x3cut0r/llama-cpp-python](https://github.com/3x3cut0r/docker/blob/main/llama-cpp-python)
 
-
+docker image: [afpro/cuda-llama-cpp-python](https://hub.docker.com/repository/docker/afpro/cuda-llama-cpp-python)
 
 ## requirement
 
