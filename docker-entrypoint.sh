@@ -42,4 +42,4 @@ exec python3 -B -m host \
     --cache_size 10737418240 \
     --host 0.0.0.0 \
     --port 8000 \
-    --interrupt_requests True
+    --interrupt_requests False
