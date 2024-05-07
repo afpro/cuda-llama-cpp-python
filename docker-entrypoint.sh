@@ -36,8 +36,8 @@ exec python3 -B -m host \
     --chat_format alpaca \
     --offload_kqv False \
     --cache True \
-    --cache_type ram \
-    --cache_size 2147483648 \
+    --cache_type disk \
+    --cache_size 10737418240 \
     --host 0.0.0.0 \
     --port 8000 \
     --interrupt_requests True
