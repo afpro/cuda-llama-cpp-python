@@ -29,7 +29,7 @@ service nginx start
 exec python3 -B -m host \
     --model /repository/model.gguf \
     --model_alias chat \
-    --n_ctx 16384 \
+    --n_ctx 8192 \
     --n_batch 512 \
     --n_gpu_layers -1 \
     --main_gpu 0 \
@@ -37,7 +37,7 @@ exec python3 -B -m host \
     --offload_kqv False \
     --rope_scaling_type 2 \
     --rope_freq_scale 0.5 \
-    --cache True \
+    --cache False \
     --cache_type ram \
     --cache_size 10737418240 \
     --host 0.0.0.0 \
