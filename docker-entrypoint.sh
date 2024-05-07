@@ -29,14 +29,14 @@ service nginx start
 exec python3 -B -m host \
     --model /repository/model.gguf \
     --model_alias chat \
-    --n_ctx 10240 \
+    --n_ctx 16384 \
     --n_batch 512 \
     --n_gpu_layers -1 \
     --main_gpu 0 \
     --chat_format alpaca \
     --offload_kqv False \
     --cache True \
-    --cache_type disk \
+    --cache_type ram \
     --cache_size 10737418240 \
     --host 0.0.0.0 \
     --port 8000 \
