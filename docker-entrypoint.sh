@@ -34,12 +34,12 @@ exec python3 -B -m host \
     --n_gpu_layers -1 \
     --main_gpu 0 \
     --chat_format alpaca \
-    --offload_kqv False \
+    --offload_kqv True \
     --rope_scaling_type 1 \
     --rope_freq_scale 0.5 \
     --cache False \
     --cache_type ram \
-    --cache_size 10737418240 \
+    --cache_size 6737418240 \
     --host 0.0.0.0 \
     --port 8000 \
     --interrupt_requests False
